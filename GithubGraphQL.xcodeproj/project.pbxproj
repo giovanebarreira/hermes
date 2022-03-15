@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		23C1BF8B27DFDC7A006722C7 /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C1BF8A27DFDC7A006722C7 /* RepositoryCell.swift */; };
+		23C1BF8E27DFE27A006722C7 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 23C1BF8D27DFE27A006722C7 /* Kingfisher */; };
+		23C9C93927E129E600FD7EAC /* NSMutableAttributedString+Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C9C93827E129E600FD7EAC /* NSMutableAttributedString+Link.swift */; };
+		23C9C93B27E12FF000FD7EAC /* UIViewController+Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C9C93A27E12FF000FD7EAC /* UIViewController+Spinner.swift */; };
 		D806B6B527C71F1C006F594D /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = D806B6B427C71F1C006F594D /* Apollo */; };
 		D806B6B727C71F1C006F594D /* ApolloSQLite in Frameworks */ = {isa = PBXBuildFile; productRef = D806B6B627C71F1C006F594D /* ApolloSQLite */; };
 		D84E7B1127C81B88000DEB5B /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84E7B1027C81B88000DEB5B /* MockData.swift */; };
@@ -47,6 +50,8 @@
 
 /* Begin PBXFileReference section */
 		23C1BF8A27DFDC7A006722C7 /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
+		23C9C93827E129E600FD7EAC /* NSMutableAttributedString+Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Link.swift"; sourceTree = "<group>"; };
+		23C9C93A27E12FF000FD7EAC /* UIViewController+Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Spinner.swift"; sourceTree = "<group>"; };
 		D84E7B1027C81B88000DEB5B /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		D8F7604A27C724F900B1AB58 /* API+Abstractions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Abstractions.swift"; sourceTree = "<group>"; };
 		D8F7604C27C7295500B1AB58 /* GraphQLClient+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GraphQLClient+Search.swift"; sourceTree = "<group>"; };
@@ -76,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23C1BF8E27DFE27A006722C7 /* Kingfisher in Frameworks */,
 				D806B6B527C71F1C006F594D /* Apollo in Frameworks */,
 				D806B6B727C71F1C006F594D /* ApolloSQLite in Frameworks */,
 			);
@@ -123,6 +129,15 @@
 			path = TableCell;
 			sourceTree = "<group>";
 		};
+		23C9C93727E129C200FD7EAC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				23C9C93827E129E600FD7EAC /* NSMutableAttributedString+Link.swift */,
+				23C9C93A27E12FF000FD7EAC /* UIViewController+Spinner.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		D84E7B0F27C81B69000DEB5B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +170,7 @@
 		D9A10F9E216C4AFD007998EC /* GithubGraphQL */ = {
 			isa = PBXGroup;
 			children = (
+				23C9C93727E129C200FD7EAC /* Extensions */,
 				D9A10FCE216C4E71007998EC /* Networking */,
 				23C1BF8827DFDC4E006722C7 /* ViewModel */,
 				23C1BF8727DFDC42006722C7 /* ViewController */,
@@ -227,6 +243,7 @@
 			packageProductDependencies = (
 				D806B6B427C71F1C006F594D /* Apollo */,
 				D806B6B627C71F1C006F594D /* ApolloSQLite */,
+				23C1BF8D27DFE27A006722C7 /* Kingfisher */,
 			);
 			productName = GithubGraphQL;
 			productReference = D9A10F9C216C4AFD007998EC /* GithubGraphQL.app */;
@@ -302,6 +319,7 @@
 			mainGroup = D9A10F93216C4AFD007998EC;
 			packageReferences = (
 				D806B6B327C71F1C006F594D /* XCRemoteSwiftPackageReference "apollo-ios" */,
+				23C1BF8C27DFE27A006722C7 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = D9A10F9D216C4AFD007998EC /* Products */;
 			projectDirPath = "";
@@ -376,7 +394,9 @@
 				D9C8E128216DBA11002A64FC /* API.swift in Sources */,
 				D8F7604B27C724F900B1AB58 /* API+Abstractions.swift in Sources */,
 				D8F7605327C72F1400B1AB58 /* ViewModel.swift in Sources */,
+				23C9C93927E129E600FD7EAC /* NSMutableAttributedString+Link.swift in Sources */,
 				D9A10FA0216C4AFD007998EC /* AppDelegate.swift in Sources */,
+				23C9C93B27E12FF000FD7EAC /* UIViewController+Spinner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -699,6 +719,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		23C1BF8C27DFE27A006722C7 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		D806B6B327C71F1C006F594D /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apollographql/apollo-ios";
@@ -710,6 +738,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		23C1BF8D27DFE27A006722C7 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23C1BF8C27DFE27A006722C7 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		D806B6B427C71F1C006F594D /* Apollo */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D806B6B327C71F1C006F594D /* XCRemoteSwiftPackageReference "apollo-ios" */;

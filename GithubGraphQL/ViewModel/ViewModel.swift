@@ -8,6 +8,8 @@ protocol ViewModelProtocol {
 
 protocol ViewModelDelegate: AnyObject {
     func show(content: [RepositoryObjectDetails])
+    func didFailed(error: String)
+    func showLoading(_ isLoading: Bool)
 }
 
 final class ViewModel: ViewModelProtocol {
@@ -20,24 +22,26 @@ final class ViewModel: ViewModelProtocol {
     }
     
     func search(phrase: String) {
-        self.client.searchRepositories(mentioning: phrase, filter: .after(endCursor, limit: 15)) { [weak self] response in
-            guard let self = self else { return }
+        delegate?.showLoading(true)
+        
+        self.client.searchRepositories(mentioning: phrase, filter: .after(endCursor, limit: 15), cachePolicy: .returnCacheDataElseFetch) { [weak self] response in
             var repositoryObjectDetails: [RepositoryObjectDetails] = []
             
             switch response {
             case let .failure(error):
-                print(error)
+                self?.delegate?.didFailed(error: error.localizedDescription)
                 
             case let .success(results):
                 let pageInfo = results.pageInfo
-                self.endCursor = Cursor(rawValue: pageInfo.endCursor ?? "")
+                self?.endCursor = Cursor(rawValue: pageInfo.endCursor ?? "")
                 
                 results.repos.forEach { repository in
                     repositoryObjectDetails.append(RepositoryObjectDetails(repositoryDetails: repository))
                 }
                 
-                self.delegate?.show(content: repositoryObjectDetails)
+                self?.delegate?.show(content: repositoryObjectDetails)
             }
+            self?.delegate?.showLoading(false)
         }
     }
 }
@@ -71,18 +75,3 @@ struct RepositoryObjectDetails {
         return String(repositoryDetails.stargazers.totalCount)
     }
 }
-
-
-//        print("pageInfo: \n")
-//        print("hasNextPage: \(pageInfo.hasNextPage)")
-//        print("hasPreviousPage: \(pageInfo.hasPreviousPage)")
-//        print("startCursor: \(String(describing: pageInfo.startCursor))")
-//        print("endCursor: \(String(describing: pageInfo.endCursor))")
-//        print("\n")
-
-//          print("Name: \(repository.name)")
-//          print("Path: \(repository.url)")
-//          print("Owner: \(repository.owner.login)")
-//          print("avatar: \(repository.owner.avatarUrl)")
-//          print("Stars: \(repository.stargazers.totalCount)")
-//          print("\n")
